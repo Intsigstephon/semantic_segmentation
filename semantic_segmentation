@@ -8,10 +8,24 @@
 7. Large Kernel Matterns
 8. DeepLab v3
 
-FCN
+FCN（２０１４）
 主要的贡献：
 １．　第一次提出采用全卷积网络来处理语义分割问题，　并得到学界的认可，　流行开来；　可以说是深度学习，　在语义分割领域的开山之作
 ２．　可以采用预训练的网络权值;
 3.  引入了反卷积来进行上采样；
 ４．　引入跳跃连接来改善上采样粗糙的像素定位；
+
+Segnet（２０１５）
+主要贡献：　将池化层结果应用到译码过程；　相当于引入了更多的编码信息；　所使用的是pooling indices而不是直接复制特征．
+所谓的通过pooling indics来译码，　就是在编码过程中，　将结果的位置记录下来，　在unpooling阶段使用该信息来进行pooling.
+对比（以max pooling为例）：
+原先：　只得到max pooling的结果，　在做unpooling是，　所以需要的值都用最大值填充；
+pooling indics: 　不仅保留max pooling的结果，　还保存ｍａｘ pooling的位置；　在unpooling时，　依据这个pooling indics来还原，　
+没有值的地方用０来填充
+
+Ｕ－Net（２０１５）：
+主要的优点：
+１．　网络结构更加规准；
+２．　特征的融合， 将编码器的结果拼接到译码器中得到更好的结果； (其实，就是类似于feature pyramid network)　
+
 
